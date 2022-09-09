@@ -1,0 +1,9 @@
+.queueItem {
+  width: 100%;
+}
+
+.queueAssignment,
+.queueName,
+.queueDate {
+  width: auto;
+}
