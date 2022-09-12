@@ -2,6 +2,19 @@
   width: 100%;
 }
 
+.queueItem,
+.gradedItem {
+  background-color: rgb(255,255,255);
+  transition: background-color .1s;
+}
+
+.queueItem:hover,
+.gradedItem:hover {
+  background-color: rgb(222, 222, 222);
+  transition: background-color .1s;
+  cursor: pointer;
+}
+
 .queueAssignment,
 .queueName,
 .queueDate {
