@@ -1,0 +1,5 @@
+{
+  "init": "Hello,\n\nGood job with the assignment. ",
+  "finish": "\nGood job on your first project.\n\n-Respectfully, Central Grader YaeliB",
+  "perfect": "Hello,\n\nGood job with the assignment. You are using semantic html tags, there are alt tags in your images and the links are working. Also the css file is consolidated. The repo has a project description, screenshot, and deployment link.\n\nGood job.\n\n-Respectfully, Central Grader YaeliB"
+}
