@@ -17,7 +17,11 @@ function App() {
   const resetHandler = () => setState(initialState)
   const addFeedback = (v) => setState({ ...state, feedback: v })
   const addFeedbackFromJson = (v) => setState({ ...state, feedback: (state.feedback + ` ${v}`)})
-  const copyText = () => navigator.clipboard.writeText(state.feedback.trim())
+  const copyText = () => {
+    const fb = state.feedback.trim()
+    localStorage.setItem("CG-" + new Date().getTime(), fb)
+    navigator.clipboard.writeText(fb)
+  }
 
   return (
     <div className="App">
@@ -37,12 +41,26 @@ function App() {
           <button id="btn-copy" onClick={copyText}>Copy</button>
           <button onClick={resetHandler}>Reset</button>
         </section>
-        <section>
-          <button onClick={() => addFeedbackFromJson(feedbackJSON.init)}>init</button>
-          <button onClick={() => addFeedbackFromJson(feedbackJSON.finish)}>finish</button>
-          <br/>
-          <button onClick={() => addFeedbackFromJson(feedbackJSON.perfect)}>perfect</button>
-          <br/>
+        <section id="btns">
+          <span>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.init)}>init</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.finish)}>finish</button>
+          </span>
+          <span>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfect)}>perfect</button>
+          </span>
+          <span>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss)}>No CSS Consolidation</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.noProfReadme)}>No Professional Readme</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.noUniqueRepoName)}>No Unique Repo name</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.onlyRepoName)}>Only Repo Name</button>
+          </span>
+          <span>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.linkSemantic)}>Link Semantic</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.linkProfessionalReadme)}>Link Professional Readme</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.linkSemanticCommit)}>Link Semantic Commit</button>
+          </span>
+            {/* <button onClick={() => addFeedbackFromJson(feedbackJSON.x)}>x</button> */}
         </section>
       </main>
     </div>

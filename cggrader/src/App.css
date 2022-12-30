@@ -23,3 +23,18 @@ button {
 #btn-copy {
   width: 10em;
 }
+
+#btns {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+#btns button {
+  max-width: 120px;
+}
+
+#btns span {
+  margin-bottom: 10px;
+}
