@@ -47,7 +47,8 @@ function App() {
             <button onClick={() => addFeedbackFromJson(feedbackJSON.finish)}>finish</button>
           </span>
           <span>
-            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfect)}>perfect</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1)}>perfect-m1</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2)}>perfect-m2</button>
           </span>
           <span>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss)}>No CSS Consolidation</button>
