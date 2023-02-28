@@ -44,11 +44,13 @@ function App() {
         <section id="btns">
           <span>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.init)}>init</button>
-            <button onClick={() => addFeedbackFromJson(feedbackJSON.finish)}>finish</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.finish)}>finish-m1</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.finishNormal)}>finish</button>
           </span>
           <span>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1)}>perfect-m1</button>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2)}>perfect-m2</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod5)}>perfect-m5</button>
           </span>
           <span>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss)}>No CSS Consolidation</button>
