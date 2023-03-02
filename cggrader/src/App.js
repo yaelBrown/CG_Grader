@@ -38,8 +38,8 @@ function App() {
           />
         </section>
         <section>
-          <button id="btn-copy" onClick={copyText}>Copy</button>
-          <button onClick={resetHandler}>Reset</button>
+          <button id="btn-copy" onClick={copyText} style={{backgroundColor: "#d3ffdf"}}>Copy</button>
+          <button onClick={resetHandler} style={{backgroundColor: "#ffd3d3"}}>Reset</button>
         </section>
         <section id="btns">
           <span>
@@ -48,9 +48,10 @@ function App() {
             <button onClick={() => addFeedbackFromJson(feedbackJSON.finishNormal)}>finish</button>
           </span>
           <span>
-            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1)}>perfect-m1</button>
-            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2)}>perfect-m2</button>
-            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod5)}>perfect-m5</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1)} style={{backgroundColor: "#d3f6ff"}}>perfect-m1</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2)} style={{backgroundColor: "#d3f6ff"}}>perfect-m2</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod3)} style={{backgroundColor: "#d3f6ff"}}>perfect-m3</button>
+            <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod5)} style={{backgroundColor: "#d3f6ff"}}>perfect-m5</button>
           </span>
           <span>
             <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss)}>No CSS Consolidation</button>
