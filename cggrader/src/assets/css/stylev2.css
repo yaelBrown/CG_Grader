@@ -1,0 +1,96 @@
+.container {
+  width: 80%;
+}
+
+header,
+main,
+section,
+aside {
+  display: flex;
+}
+
+header {
+  width: 100vw;
+}
+
+header h1 {
+  text-align: center;
+  margin: auto;
+}
+
+main {
+  width: 997px;
+  margin: auto;
+  margin-bottom: 1em;
+  justify-content: center;
+  background-color: rgb(255, 248, 239);
+  padding: 1em 0;
+}
+
+button {
+  margin-right: .5em;
+  margin-bottom: .5em;
+  padding: .75em;
+}
+
+section textarea {
+  width: 562px;
+  height: 282px;
+}
+
+.left-section {
+  float: left;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+  padding: 0 .5em;
+}
+
+.left-section, 
+aside {
+  width: 200px;
+}
+
+.middle-section {
+  flex-direction: column;
+}
+
+.middle-row, 
+.image-row {
+  flex-direction: row;
+}
+
+.middle-row {
+  margin: 0.5em 0;
+}
+
+.image-row img {
+  max-width: 550px;
+}
+
+#btn-copy {
+  background-color: #d3ffdf;
+}
+
+#btn-reset {
+  background-color: #ffd3d3;
+}
+
+aside {
+  float: right;
+  padding: 0 .7em;
+  flex-direction: column;
+}
+
+aside ul {
+  padding: 0;
+}
+
+aside li {
+  list-style-type: none;
+  padding: 0;
+}
+
+aside button {
+  width: 100%;
+}
