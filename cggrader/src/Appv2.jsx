@@ -105,7 +105,7 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1, mod1)} style={{backgroundColor: "#d3f6ff"}}>perfect-m1</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2, mod2)} style={{backgroundColor: "#d3f6ff"}}>perfect-m2</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod3, mod3)} style={{backgroundColor: "#d3f6ff"}}>perfect-m3</button>
-          <button onClick={() => addFeedbackFromJson(feedbackJSON.init, mod4)} style={{backgroundColor: "#d3f6ff"}}>perfect-m4</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod4, mod4)} style={{backgroundColor: "#d3f6ff"}}>perfect-m4</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod5, mod5)} style={{backgroundColor: "#d3f6ff"}}>perfect-m5</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.init, mod9)} style={{backgroundColor: "#d3f6ff"}}>perfect-m9</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod14, mod14)} style={{backgroundColor: "#d3f6ff"}}>perfect-m14</button>
