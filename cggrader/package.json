@@ -1,5 +1,6 @@
 {
   "name": "cggrader",
+  "homepage": "https://yaelBrown.github.io/CG_Grader",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
