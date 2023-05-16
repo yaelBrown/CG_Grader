@@ -15,7 +15,7 @@
   "noCss": "The css file is not consolidated. You have multiple selectors with the same code. You can consolidate the selectors to avoid repeated code.",
   "noProfReadme": "In the repo you need to have an professional readme. The professional readme needs to have a description, screenshot and deployment link. You can find more information on the professional readme here: https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide.",
   "noUniqueRepoName": "The repo needs to have an unique name.",
-  "noAssetsFolder": "In your repo you need to have an assets folder. In that assets folder thats where you need to have your script and css files at and in their respective folders.",
+  "noAssetsFolder": "In your repo you need to have an assets folder. In that assets folder thats where you need to have your script and css files at and in their own respective folders. ",
   "linkSemantic": "https://www.w3schools.com/html/html5_semantic_elements.asp",
   "linkProfessionalReadme": "https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide",
   "linkSemanticCommit": "https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716"
