@@ -20,6 +20,8 @@ export default function Appv2() {
     lsData: []
   }
 
+  const [state, setState] = useState(initialState)
+  
   useEffect(() => {
     document.title = "CG Grader"
     const data = JSON.parse(localStorage.getItem("cggrader_data"))
@@ -29,9 +31,7 @@ export default function Appv2() {
       setState({...state, lsData: []})
     }
 
-  }, [])
-
-  const [state, setState] = useState(initialState)
+  }, [state])
 
   const resetHandler = () => {
     setState({...state, feedback: '', imgSrc: ybLogo})
@@ -44,7 +44,7 @@ export default function Appv2() {
       setState({ ...state, feedback: (state.feedback + ` ${v}`), imgSrc: i})
     }
   }
-  const setImage = (i) => setState({...state, imgSrc: i})
+  // const setImage = (i) => setState({...state, imgSrc: i})
   const saveCurText = () => setState({ ...state, saved: state.feedback})
   const retrieveSaved = () => addFeedback(state.saved)
   const copyText = () => {
@@ -56,6 +56,7 @@ export default function Appv2() {
     localStorage.setItem("cggrader_data", JSON.stringify(newState.lsData))
     navigator.clipboard.writeText(fb)
   }
+  
   const renderLocalStorageItems = () => {
     let out = "<ul>"
     for (let i = 0;i < state.lsData.length; i++) {
@@ -69,6 +70,7 @@ export default function Appv2() {
       return out
     }    
   }
+
   const sidebarbtnclick = (e) => {
     for (let i = 0;i < state.lsData.length; i++) {
       if (state.lsData[i].dt.slice(0,24) === e.target.innerText) {
@@ -77,6 +79,7 @@ export default function Appv2() {
       }
     }
   }
+
   const clearLocalStorageItems = () => {
     // eslint-disable-next-line no-restricted-globals
     const confirmSel = confirm("Are you sure you want to clear LocalStorage Items?")
@@ -116,6 +119,8 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noUniqueRepoName, false)}>No Unique Repo name</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noAssetsFolder, false)}>No Assets Folder</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.onlyRepoName, false)}>Only Repo Name</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.developFolder, false)}>Develop Folder</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.readmeIsProjectDirections, false)}>Project Directions</button>
           <hr/>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.linkSemantic, false)}>Link Semantic</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.linkProfessionalReadme, false)}>Link Professional Readme</button>
