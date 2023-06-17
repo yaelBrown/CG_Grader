@@ -10,6 +10,7 @@ import mod5 from './assets/images/mod5-workday-scheduler-grading-reqs.png'
 import mod9 from './assets/images/mod9-readme-generator-reqs.png'
 import mod14 from './assets/images/mod14-tech-blog.png'
 import mod19 from './assets/images/mod19-text-editor.png'
+import mod21 from './assets/images/mod21-book-search-engine.png'
 
 export default function Appv2() {
   const initialState = {
@@ -113,6 +114,7 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod9, mod9)} style={{backgroundColor: "#d3f6ff"}}>perfect-m9</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod14, mod14)} style={{backgroundColor: "#d3f6ff"}}>perfect-m14</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod19, mod19)} style={{backgroundColor: "#d3f6ff"}}>perfect-m19</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod21, mod21)} style={{backgroundColor: "#d3f6ff"}}>perfect-m21</button>
           <hr/>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss, false)}>No CSS Consolidation</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noProfReadme, false)}>No Professional Readme</button>
