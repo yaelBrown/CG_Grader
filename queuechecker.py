@@ -5,7 +5,7 @@ import os
 import datetime
 
 url = "https://grading.bootcampspot.com/api/centralgrading/v1/submissions"
-authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk2NzczLCJtaW51dGVzVGltZW91dCI6NjAsImNyZWF0aW9uVGltZSI6IjIwMjMtMDYtMjFUMjM6NDI6MjIuODI1MDMwNjYyWiJ9.lpxDH0HUnBfUxMhwf3MwUj3Z-XRneaN1OSPpuIcb5ew"
+authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk2NzczLCJtaW51dGVzVGltZW91dCI6NjAsImNyZWF0aW9uVGltZSI6IjIwMjMtMDYtMjJUMjE6Mjc6MTcuNTU5NDk4MzY1WiJ9.zsNE0r9gENy2y9eStI-xkqVA_5EZsjez_crbbI8jsgk"
 
 payload = json.dumps({
   "offset": 0,
