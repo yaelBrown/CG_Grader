@@ -105,6 +105,7 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.init, false)}>init</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.finish, false)}>finish-m1</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.finishNormal, false)}>finish</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.skip, false)}>skip</button>
           <hr/>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod1, mod1)} style={{backgroundColor: "#d3f6ff"}}>perfect-m1</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.perfectMod2, mod2)} style={{backgroundColor: "#d3f6ff"}}>perfect-m2</button>
@@ -119,6 +120,7 @@ export default function Appv2() {
           <hr/>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noCss, false)}>No CSS Consolidation</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noProfReadme, false)}>No Professional Readme</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.noScreenshotOrDeploymentLink, false)}>No SS / Dep Link</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noUniqueRepoName, false)}>No Unique Repo name</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noAssetsFolder, false)}>No Assets Folder</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.onlyRepoName, false)}>Only Repo Name</button>
