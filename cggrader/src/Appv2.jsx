@@ -32,7 +32,7 @@ export default function Appv2() {
       setState({...state, lsData: []})
     }
 
-  }, [state])
+  }, [])
 
   const resetHandler = () => {
     setState({...state, feedback: '', imgSrc: ybLogo})
