@@ -22,7 +22,7 @@ export default function Appv2() {
   }
 
   const [state, setState] = useState(initialState)
-  
+
   useEffect(() => {
     document.title = "CG Grader"
     const data = JSON.parse(localStorage.getItem("cggrader_data"))
@@ -32,7 +32,7 @@ export default function Appv2() {
       setState({...state, lsData: []})
     }
 
-  }, [])
+  }, [state])
 
   const resetHandler = () => {
     setState({...state, feedback: '', imgSrc: ybLogo})
@@ -57,19 +57,19 @@ export default function Appv2() {
     localStorage.setItem("cggrader_data", JSON.stringify(newState.lsData))
     navigator.clipboard.writeText(fb)
   }
-  
+
   const renderLocalStorageItems = () => {
     let out = "<ul>"
     for (let i = 0;i < state.lsData.length; i++) {
       out += `<li><button>${state.lsData[i].dt.slice(0,24)}</button></li>`
     }
     out += "</ul>"
-    
+
     if (out === "<ul></ul>") {
       return ""
     } else {
       return out
-    }    
+    }
   }
 
   const sidebarbtnclick = (e) => {
@@ -84,7 +84,7 @@ export default function Appv2() {
   const clearLocalStorageItems = () => {
     // eslint-disable-next-line no-restricted-globals
     const confirmSel = confirm("Are you sure you want to clear LocalStorage Items?")
-    let isCleared = false; 
+    let isCleared = false;
     if (confirmSel) {
       localStorage.setItem("cggrader_data", JSON.stringify([]))
       setState({...state, numInLocalStorage: 0, lsData: [], imgSrc: ybLogo})
@@ -131,7 +131,7 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.linkProfessionalReadme, false)}>Link Professional Readme</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.linkSemanticCommit, false)}>Link Semantic Commit</button>
         </section>
-        <section className='middle-section'>          
+        <section className='middle-section'>
           <textarea
             value={state.feedback}
             name="feedback"
@@ -141,21 +141,21 @@ export default function Appv2() {
             spellCheck="true"
           />
           <div className='middle-row'>
-            <button 
-              id="btn-copy" 
-              onClick={copyText} 
+            <button
+              id="btn-copy"
+              onClick={copyText}
             >
               Copy
             </button>
-            <button 
-              id="btn-reset" 
-              onClick={saveCurText} 
+            <button
+              id="btn-reset"
+              onClick={saveCurText}
             >
               Save
             </button>
-            <button 
-              id="btn-reset" 
-              onClick={resetHandler} 
+            <button
+              id="btn-reset"
+              onClick={resetHandler}
             >
               Reset
             </button>
