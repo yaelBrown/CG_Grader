@@ -1,0 +1,7 @@
+Central Grader
+06/30/2023 at 02:47:28 AM
+Fantastic start with the tech blog challenge, Yanming!! You'll be learning so much with this project and it will turn into a stunning portfolio piece in time. Unfortunately submitting starter code such as what's in the three submitted GitHub repository files: the .gitignore, license, and ReadMe have to render this project as incomplete. It's extremely nice to see you practice using the .gitignore as that knowledge will help protect project security! Definitely keep on using the class recordings and activities as extra resources. And as I'm sure you know, tutoring and office hours are great places for coding questions. Keep up the amazing work and more progress will come Yanming!! - Central Grader, AJ
+
+Central Grader
+08/24/2023 at 18:07:05 PM
+Hi Yamming, Great job resubmitting this challenge, I am seeing both links to your repo and your heroku link which is great to see however the heroku link doesn't work and the repo seems to be rather baron with only 1 commit, once you make more progress on the app then it will be easier for us to grade it! Wishing you the best of luck and don't forget to continue utilizing the class recordings and supplementary activities as valuable supplementary materials. As you're undoubtedly aware, both tutoring sessions and office hours provide excellent opportunities to address any coding inquiries. Your efforts are commendable, Yanming—by maintaining this impressive work, further advancements are bound to unfold. Best regards, - Central Grader, AR

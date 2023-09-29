@@ -28,11 +28,8 @@ export default function Appv2() {
     const data = JSON.parse(localStorage.getItem("cggrader_data"))
     if (data) {
       setState({...state, lsData: data, numInLocalStorage: data.length})
-    } else {
-      setState({...state, lsData: []})
     }
-
-  }, [state])
+  }, [state.feedback])
 
   const resetHandler = () => {
     setState({...state, feedback: '', imgSrc: ybLogo})

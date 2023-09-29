@@ -22,6 +22,7 @@
   "noScreenshotOrDeploymentLink": "The readme has a project description, but you are missing a screenshot, and deployment link. You needed to have a screenshot of the output and the same deployment link in your project submission in the readme as well.",
   "noAssetsFolder": "In your repo you need to have an assets folder. In that assets folder thats where you need to have your script and css files at and in their own respective folders. ",
   "developFolder": "One thing about your repo, you still have the develop folder. Now that you are turning in your application, you don't need to have a develop folder anymore. All of the files that are in your develop folder should be in the root of your repo.",
+  "badCommitHistory": "Your commit history is a bit sparse. Make sure that you commit every time that you make a meaningful change to the code and give it a message that describes the change that was made. Think of commits as a history of the development of your repository.",
   "linkSemantic": "https://www.w3schools.com/html/html5_semantic_elements.asp",
   "linkProfessionalReadme": "https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide",
   "linkSemanticCommit": "https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716"
