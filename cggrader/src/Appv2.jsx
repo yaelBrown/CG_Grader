@@ -121,6 +121,7 @@ export default function Appv2() {
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noUniqueRepoName, false)}>No Unique Repo name</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.noAssetsFolder, false)}>No Assets Folder</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.onlyRepoName, false)}>Only Repo Name</button>
+          <button onClick={() => addFeedbackFromJson(feedbackJSON.badCommitHistory, false)}>Bad Commit History</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.developFolder, false)}>Develop Folder</button>
           <button onClick={() => addFeedbackFromJson(feedbackJSON.readmeIsProjectDirections, false)}>Project Directions</button>
           <hr/>
