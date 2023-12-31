@@ -1,0 +1,3 @@
+class GraderHelper {
+  // Helper class
+}
