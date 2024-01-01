@@ -1,23 +1,37 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import feedbackJSON from "./feedbackv2.json";
-import ybLogo from "./assets/images/ybLogo.jpg";
 import "./assets/css/stylev3.css";
+import GraderHelper from "./lib/GraderHelper";
+
+const GH = new GraderHelper()
 
 function Appv3() {
   const initialState = {
     currentModSelected: "",
     feedback: "",
     mem: "",
+    positiveItems: [],
     negativeItems: []
   }
 
   const [state, setState] = useState(initialState)
 
   const addFeedbackFromJSON = evt => {
-    const dataTemp = evt.target.getAttribute('data-button').split(".")
-    if (dataTemp[0] === "perfect") return setState({...state, feedback: feedbackJSON[state.currentModSelected].perfect})
-    return setState({...state, feedback: state.feedback + feedbackJSON[dataTemp[0]][dataTemp[1]]})
+    try {
+      const dataTemp = evt.target.getAttribute('data-button').split(".")
+      if (dataTemp[0] === "perfect") return setState({ ...state, feedback: feedbackJSON[state.currentModSelected].perfect })
+      return setState({ ...state, feedback: state.feedback + feedbackJSON[dataTemp[0]][dataTemp[1]] })
+    } catch (error) {
+      if (error instanceof TypeError) {
+        return setState({ ...state, feedback: evt })
+      }
+    }
+  }
+
+  const generateFeedback = async evt => {
+    const res = await GH.makeOpenAIRequest()
+    addFeedbackFromJSON(res)
   }
 
   const updateCurrentModSelected = evt => {
@@ -50,26 +64,6 @@ function Appv3() {
       <section id="top_section">
         <div id="assignment_btns">
           <button type="button" data-button="mod1" onClick={updateCurrentModSelected}>Mod 1</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
-          <button type="button">Mod ##</button>
         </div>
         <div className="vert_divider" />
         <div>
@@ -91,7 +85,7 @@ function Appv3() {
         <div id="feedback_text">
           <textarea id="feedback_text_area" value={state.feedback} onChange={updateFeedback}></textarea>
           <div>
-            <button className="feedback_text_btn">Generate</button>
+            <button className="feedback_text_btn" onClick={generateFeedback}>Generate</button>
             <br />
             <button className="feedback_text_btn copy_btn" onClick={copyFeedbackToClipboard}>Copy</button>
             <br />
@@ -125,8 +119,6 @@ function Appv3() {
 
 export default Appv3;
 
-// Add timer at the time
-// Add previous assignments section with a clear button
 
 // Connect with ChatGPT
 
