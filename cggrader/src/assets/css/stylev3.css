@@ -33,7 +33,7 @@ button:active {
 }
 
 #top_section {
-  width: 1400px;
+  width: 1200px;
   height: 800px;
   margin: auto;
   background: #121212;
@@ -116,7 +116,8 @@ button:active {
 }
 
 .feedback_text_btn {
-  padding: 8px 176px;
+  height: 50px;
+  width: 384px;
   justify-content: center;
   margin-bottom: 3px;
 }
@@ -134,6 +135,54 @@ button:active {
   background-color: #311c1c;
   padding: 16px 176px;
 }
+
+#feedback_prev {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+
+.feedback_prev_table_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.feedback_prev_table_row * {
+  /* margin-right: 20px; */
+}
+
+.feedback_prev_table_head {
+  font-weight: bold;
+}
+
+.feedback_prev_table_id {
+  width: 10px;
+}
+
+.feedback_prev_table_module {
+  width: 10px;
+}
+
+.feedback_prev_table_score {
+  width: 20px;
+}
+
+.feedback_prev_table_datetime {
+  width: 220px;
+}
+
+.feedback_prev_item {
+  cursor: pointer;
+}
+
+.feedback_prev_item:hover {
+  background-color: #292929;
+}
+
+
+
 
 .wborder {
   border: 1px solid #ffffff;
