@@ -2,7 +2,7 @@ import axios from "axios";
 
 class GraderHelper {
 
-  apiKey = "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" // Replace with environmental variable
+  apiKey = "" // Replace with environmental variable
 
   async makeOpenAIRequest() {
     const options = {
