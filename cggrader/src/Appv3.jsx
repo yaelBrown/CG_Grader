@@ -3,16 +3,20 @@ import { useEffect, useState } from "react";
 import feedbackJSON from "./feedbackv2.json";
 import "./assets/css/stylev3.css";
 import GraderHelper from "./lib/GraderHelper";
+import RubricRenderer from "./lib/RubricRenderer";
 
 const GH = new GraderHelper()
+const RR = new RubricRenderer()
 
 function Appv3() {
   const initialState = {
     currentModSelected: "",
     feedback: "",
     mem: "",
+    negItemsSelectedScore: 0,
+    negItems: [],
     positiveItems: [],
-    negativeItems: []
+    modCriteria: ""
   }
 
   const [state, setState] = useState(initialState)
@@ -36,7 +40,9 @@ function Appv3() {
 
   const updateCurrentModSelected = evt => {
     const mod = evt.target.getAttribute('data-button')
-    setState({...state, currentModSelected: mod})
+    const feedbackData = RR.renderFeedbackFromObject(feedbackJSON[mod].rubric)
+    console.log(feedbackData)
+    setState({...state, currentModSelected: mod, positiveItems: feedbackData.items, modCriteria: feedbackData.jsx})
   }
 
   const updateFeedback = evt => {
@@ -80,6 +86,7 @@ function Appv3() {
             <button className="feedback_default_btn" data-button="default.badCommitHistory" onClick={addFeedbackFromJSON}>Bad Commit History</button>
           </div>
           <div className="hor_divider" />
+          <div id="feedback_rubric" dangerouslySetInnerHTML={{__html: state.modCriteria}}></div>
         </div>
         <div className="vert_divider" />
         <div id="feedback_text">
@@ -118,8 +125,3 @@ function Appv3() {
 }
 
 export default Appv3;
-
-
-// Connect with ChatGPT
-
-// Create application logic

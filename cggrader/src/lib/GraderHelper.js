@@ -2,7 +2,11 @@ import axios from "axios";
 
 class GraderHelper {
 
-  apiKey = "" // Replace with environmental variable
+  _apiKey = "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" // Replace with environmental variable
+
+  _generatePrompt(pos, neg) {
+    return true
+  }
 
   async makeOpenAIRequest() {
     const options = {
@@ -10,7 +14,7 @@ class GraderHelper {
       url: 'https://api.openai.com/v1/chat/completions',
       headers: {
         ContentType: 'application/json',
-        Authorization: `Bearer ${this.apiKey}`
+        Authorization: `Bearer ${this._apiKey}`
       },
       data: {
         model: 'gpt-3.5-turbo',

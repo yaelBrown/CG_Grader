@@ -95,6 +95,30 @@ button:active {
   flex-direction: column;
 }
 
+#feedback_rubric {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#feedback_rubric p {
+  margin: 0 0;
+}
+
+.feedback_rubric_title,
+.feedback_rubric_item {
+  background-color: #292929;
+  cursor: pointer;
+}
+
+.feedback_rubric_title {
+  font-weight: 900;
+}
+
+.feedback_rubric_item {
+  font-weight: 200;
+}
+
 .feedback_default_btn {
   padding: 8px 44px;
   background-color: #131313;
