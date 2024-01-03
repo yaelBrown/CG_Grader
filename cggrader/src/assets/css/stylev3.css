@@ -1,9 +1,10 @@
 main {
-  background-color: #292929;
+  background-color: #292929 !important;
   color: #ffffff;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-top: 1em;
 }
 
 button {
@@ -33,9 +34,8 @@ button:active {
 }
 
 #top_section {
-  width: 1200px;
   height: 800px;
-  margin: auto;
+  margin: 0 auto;
   background: #121212;
   display: flex;
   padding: 10px;
@@ -86,8 +86,13 @@ button:active {
   padding: 10px 44px;
 }
 
+#feedback_items {
+  max-width: 283px;
+}
+
 .feedback_btn_lg {
   padding: 20px 88px;
+  width: 280px;
 }
 
 #feedback_default_btn_grp {
@@ -98,7 +103,32 @@ button:active {
 #feedback_rubric {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
+  height: 450px;
+}
+
+#feedback_rubric::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 15px;
+  right: 0;
+}
+
+#feedback_rubric::-webkit-scrollbar-thumb {
+  background-color: #161616;
+  border-radius: 6px;
+}
+
+#feedback_rubric::-webkit-scrollbar-thumb:hover {
+  background-color: #161616;
+}
+
+#feedback_rubric::-webkit-scrollbar-track {
+  background-color: #1e1e1e;
+}
+
+#feedback_rubric *:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
 }
 
 #feedback_rubric p {
@@ -163,36 +193,41 @@ button:active {
 #feedback_prev {
   display: flex;
   flex-direction: column;
-  width: 450px;
 }
 
-.feedback_prev_table_row {
+.feedback_prev_table_row,
+.feedback_prev_table_items > * {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 0 15px;
-}
-
-.feedback_prev_table_row * {
-  /* margin-right: 20px; */
+  cursor: pointer;
 }
 
 .feedback_prev_table_head {
   font-weight: bold;
 }
 
+.feedback_prev_table_items {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback_prev_table_items > * > :nth-child(1),
 .feedback_prev_table_id {
-  width: 10px;
+  width: 30px;
 }
 
+.feedback_prev_table_items > * > :nth-child(2),
 .feedback_prev_table_module {
-  width: 10px;
+  width: 40px;
 }
 
+.feedback_prev_table_items > * > :nth-child(3),
 .feedback_prev_table_score {
-  width: 20px;
+  width: 50px;
 }
 
+.feedback_prev_table_items > * > :nth-child(4),
 .feedback_prev_table_datetime {
   width: 220px;
 }
@@ -201,12 +236,21 @@ button:active {
   cursor: pointer;
 }
 
-.feedback_prev_item:hover {
+.feedback_prev_table_row:hover,
+.feedback_prev_table_items > *:hover {
   background-color: #292929;
 }
 
+#current_score {
+  margin: 0 auto;
+  color: red;
+  width: 100%;
+  text-align: center;
+}
 
-
+#current_score h1 {
+  margin-top: 0;
+}
 
 .wborder {
   border: 1px solid #ffffff;

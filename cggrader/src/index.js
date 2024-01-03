@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/css/index.css';
 import Appv3 from './Appv3';
-import Appv2 from './Appv2';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Appv2/>
-    {/* <Appv3/> */}
+    <Appv3/>
   </React.StrictMode>
 );
 

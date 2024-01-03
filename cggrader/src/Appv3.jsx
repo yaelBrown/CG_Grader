@@ -1,12 +1,13 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import feedbackJSON from "./feedbackv2.json";
 import "./assets/css/stylev3.css";
 import GraderHelper from "./lib/GraderHelper";
 import RubricRenderer from "./lib/RubricRenderer";
+import LocalStorageHelper from "./lib/LocalStorageHelper";
 
 const GH = new GraderHelper()
 const RR = new RubricRenderer()
+const LSH = new LocalStorageHelper()
 
 function Appv3() {
   const initialState = {
@@ -16,7 +17,7 @@ function Appv3() {
     negItemsSelectedScore: 0,
     negItems: [],
     positiveItems: [],
-    modCriteria: ""
+    modCriteria: " "
   }
 
   const [state, setState] = useState(initialState)
@@ -33,14 +34,14 @@ function Appv3() {
     }
   }
 
-  const generateFeedback = async evt => {
+  const generateFeedback = async () => {
     const res = await GH.makeOpenAIRequest()
     addFeedbackFromJSON(res)
   }
 
   const updateCurrentModSelected = evt => {
     const mod = evt.target.getAttribute('data-button')
-    const feedbackData = RR.renderFeedbackFromObject(feedbackJSON[mod].rubric)
+    const feedbackData = RR.renderFeedbackFromObject(feedbackJSON[mod].rubric, updateNegIemsSelectedScore)
     console.log(feedbackData)
     setState({...state, currentModSelected: mod, positiveItems: feedbackData.items, modCriteria: feedbackData.jsx})
   }
@@ -58,11 +59,36 @@ function Appv3() {
   }
 
   const clearFeedback = () => {
-    setState({...state, feedback: ""})
+    setState(initialState)
   }
 
   const copyFeedbackToClipboard = () => {
+    LSH.addToLocalStorage(state)
     navigator.clipboard.writeText(state.feedback)
+  }
+
+  const updateNegIemsSelectedScore = evt => {
+    if (evt.target.textContent === " ") return
+    let newScore = state.negItemsSelectedScore
+    let newNegItems = state.negItems || []
+
+    if (evt.target.style.backgroundColor === '') {
+      evt.target.style.backgroundColor = "#410000"
+      newScore += parseInt(evt.target.getAttribute('data-score'))
+      newNegItems.push(evt.target.textContent)
+    } else {
+      evt.target.style.backgroundColor = ""
+      newScore -= parseInt(evt.target.getAttribute('data-score'))
+      newNegItems = newNegItems.filter(i => i !== evt.target.textContent)
+    }
+
+    setState({...state, negItemsSelectedScore: newScore, negItems: newNegItems})
+  }
+
+  const calculateScore = () => {
+    let out = 100 - state.negItemsSelectedScore
+    if (isNaN(out)) return 100
+    return out
   }
 
   return (
@@ -72,7 +98,7 @@ function Appv3() {
           <button type="button" data-button="mod1" onClick={updateCurrentModSelected}>Mod 1</button>
         </div>
         <div className="vert_divider" />
-        <div>
+        <div id="feedback_items">
           <div>
             <button className="feedback_btn_lg" data-button="perfect" onClick={addFeedbackFromJSON}>Perfect</button>
           </div>
@@ -86,12 +112,15 @@ function Appv3() {
             <button className="feedback_default_btn" data-button="default.badCommitHistory" onClick={addFeedbackFromJSON}>Bad Commit History</button>
           </div>
           <div className="hor_divider" />
-          <div id="feedback_rubric" dangerouslySetInnerHTML={{__html: state.modCriteria}}></div>
+          <div id="feedback_rubric" dangerouslySetInnerHTML={{__html: state.modCriteria}} onClick={updateNegIemsSelectedScore} />
         </div>
         <div className="vert_divider" />
         <div id="feedback_text">
           <textarea id="feedback_text_area" value={state.feedback} onChange={updateFeedback}></textarea>
           <div>
+            <div id="current_score">
+              <h1>{calculateScore()}</h1>
+            </div>
             <button className="feedback_text_btn" onClick={generateFeedback}>Generate</button>
             <br />
             <button className="feedback_text_btn copy_btn" onClick={copyFeedbackToClipboard}>Copy</button>
@@ -111,15 +140,10 @@ function Appv3() {
             <div className="feedback_prev_table_score">Score</div>
             <div className="feedback_prev_table_datetime">Datetime</div>
           </div>
-          <div className="feedback_prev_table_row feedback_prev_item">
-            <div className="feedback_prev_table_id">99</div>
-            <div className="feedback_prev_table_module">99</div>
-            <div className="feedback_prev_table_score">100</div>
-            <div className="feedback_prev_table_datetime">Sun Dec 31 2023 21:11:58</div>
-          </div>
+          <div className="feedback_prev_table_items" dangerouslySetInnerHTML={{__html: LSH.renderItems()}} />
         </div>
       </section>
-      <section id="bottom">2024</section>
+      <section id="bottom"></section>
     </main>
   );
 }
