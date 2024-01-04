@@ -236,6 +236,10 @@ button:active {
   cursor: pointer;
 }
 
+.feedback_prev_btn {
+  padding: 8px 20px;
+}
+
 .feedback_prev_table_row:hover,
 .feedback_prev_table_items > *:hover {
   background-color: #292929;

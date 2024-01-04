@@ -17,6 +17,7 @@ function Appv3() {
     negItemsSelectedScore: 0,
     negItems: [],
     positiveItems: [],
+    previousItems: "",
     modCriteria: " "
   }
 
@@ -42,7 +43,6 @@ function Appv3() {
   const updateCurrentModSelected = evt => {
     const mod = evt.target.getAttribute('data-button')
     const feedbackData = RR.renderFeedbackFromObject(feedbackJSON[mod].rubric, updateNegIemsSelectedScore)
-    console.log(feedbackData)
     setState({...state, currentModSelected: mod, positiveItems: feedbackData.items, modCriteria: feedbackData.jsx})
   }
 
@@ -59,12 +59,21 @@ function Appv3() {
   }
 
   const clearFeedback = () => {
-    setState(initialState)
+    const tempPreviousItems = state.previousItems
+    const tempMem = state.mem
+    setState({...initialState, previousItems: tempPreviousItems, mem: tempMem})
+  }
+
+  const clearPrevItems = () => {
+    LSH.clearItems()
+    refreshPreviousItems()
+    alert("Cleared previous items")
   }
 
   const copyFeedbackToClipboard = () => {
     LSH.addToLocalStorage(state)
     navigator.clipboard.writeText(state.feedback)
+    refreshPreviousItems()
   }
 
   const updateNegIemsSelectedScore = evt => {
@@ -85,10 +94,19 @@ function Appv3() {
     setState({...state, negItemsSelectedScore: newScore, negItems: newNegItems})
   }
 
+  const refreshPreviousItems = () => {
+    setState({...state, previousItems: LSH.renderItems()})
+  }
+
   const calculateScore = () => {
     let out = 100 - state.negItemsSelectedScore
     if (isNaN(out)) return 100
     return out
+  }
+
+  const retrievePrevItem = evt => {
+    const prevItem = LSH.getFeedbackByID(evt.target.getAttribute('data-id'))
+    setState({...state, feedback: prevItem.feedback, negItemsSelectedScore: (100 - prevItem.score)})
   }
 
   return (
@@ -140,7 +158,9 @@ function Appv3() {
             <div className="feedback_prev_table_score">Score</div>
             <div className="feedback_prev_table_datetime">Datetime</div>
           </div>
-          <div className="feedback_prev_table_items" dangerouslySetInnerHTML={{__html: LSH.renderItems()}} />
+          <div className="feedback_prev_table_items" dangerouslySetInnerHTML={{__html: state.previousItems}} onClick={retrievePrevItem} />
+          <br/>
+          <button className="feedback_prev_btn clear_btn" onClick={clearPrevItems}>Clear Prev Items</button>
         </div>
       </section>
       <section id="bottom"></section>
@@ -150,6 +170,6 @@ function Appv3() {
 
 export default Appv3;
 
+// Add other mods to JSON,
 
-// Get previous items to populate.
-// clear previous items.
+// Prepare prompt and fix chatgpt key

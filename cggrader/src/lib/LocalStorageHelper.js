@@ -26,16 +26,14 @@ class LocalStorageHelper {
   addToLocalStorage(sObj) {
     let allItems = this.__getAllItemsFromLocalStorage()
     allItems.push(this.__gradedItemSerializer(sObj))
-    console.log(allItems)
     this.__setAllItemsToLocalStorage(allItems)
   }
 
   __renderItemToJSX(item) {
-    return `<div className="feedback_prev_table_row feedback_prev_item"><div className="feedback_prev_table_id">${item.id}</div><div className="feedback_prev_table_module">${item.mod}</div><div className="feedback_prev_table_score">${item.score}</div><div className="feedback_prev_table_datetime">${item.dateTime}</div></div>`
+    return `<div className="feedback_prev_table_row feedback_prev_item"><div className="feedback_prev_table_id" data-id=${item.id}>${item.id}</div><div className="feedback_prev_table_module" data-id=${item.id}>${item.mod}</div><div className="feedback_prev_table_score" data-id=${item.id}>${item.score}</div><div className="feedback_prev_table_datetime" data-id=${item.id}>${item.dateTime}</div></div>`
   }
 
   _renderAllItemsToJSX(allItems) {
-    console.log(allItems)
     let jsx = ""
     allItems.forEach(item => {
       jsx += this.__renderItemToJSX(item)
@@ -54,8 +52,13 @@ class LocalStorageHelper {
     }
   }
 
-  clearItems () {
+  clearItems() {
     localStorage.setItem("gradedItems", [])
+  }
+
+  getFeedbackByID(id) {
+    const allItems = this.__getAllItemsFromLocalStorage()
+    return allItems.filter(item => item.id === parseInt(id))[0]
   }
 }
 

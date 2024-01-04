@@ -1,0 +1,17 @@
+mod-3 bootstrap portfolio
+
+Hello,
+
+Good job with the assignment and congratulations on a good homework assignment! You were able to create a bootstrap portfolio. Your application is deployed onto a live URL, it loads without errors and the you submitted the github url. The application looks like the previous portfolio and it has all the same required items. Your repo contains application code, it has a unique name, follows best practices for the file structure and naming convents, and contains multiple descriptive commit messages. The readme has a project description, screenshot, and deployment link. Overall, good job with the project.
+
+-Respectfully, Central Grader YaeliB
+
+
+
+mod-4 console finances
+
+Hello, 
+
+Good job with the assignment and congratulations on a good homework assignment! You were able to analyze the financial records of a company utilizing javascript. You were able to perform calculations with javascript and generate an output in the console. Your application is deployed to a live URL, it loads without errors, you submitted the github pages URL. The repo has an unique name, the repo follows file structure and naming conventions. The readme has a project description, screenshot, and deployment link. Overall, good job with the project.
+
+-Respectfully, Central Grader YaeliB
