@@ -36,8 +36,9 @@ function Appv3() {
   }
 
   const generateFeedback = async () => {
-    const res = await GH.makeOpenAIRequest()
-    addFeedbackFromJSON(res)
+    const res = await GH.makeOpenAIRequest(state.negItems, state.positiveItems)
+    const generatedFeedback = feedbackJSON.default.init + res + feedbackJSON.default.finish
+    addFeedbackFromJSON(generatedFeedback)
   }
 
   const updateCurrentModSelected = evt => {
@@ -106,8 +107,13 @@ function Appv3() {
 
   const retrievePrevItem = evt => {
     const prevItem = LSH.getFeedbackByID(evt.target.getAttribute('data-id'))
+    console.log(prevItem)
     setState({...state, feedback: prevItem.feedback, negItemsSelectedScore: (100 - prevItem.score)})
   }
+
+  useEffect(() => {
+    refreshPreviousItems()
+  }, [])
 
   return (
     <main>
@@ -128,6 +134,7 @@ function Appv3() {
             <button className="feedback_default_btn" data-button="default.noAssetsFolder" onClick={addFeedbackFromJSON}>No Assets Folder</button>
             <button className="feedback_default_btn" data-button="default.developFolder" onClick={addFeedbackFromJSON}>Develop Folder</button>
             <button className="feedback_default_btn" data-button="default.badCommitHistory" onClick={addFeedbackFromJSON}>Bad Commit History</button>
+            <button className="feedback_default_btn" data-button="default.noProfReadme" onClick={addFeedbackFromJSON}>No Professional Readme</button>
           </div>
           <div className="hor_divider" />
           <div id="feedback_rubric" dangerouslySetInnerHTML={{__html: state.modCriteria}} onClick={updateNegIemsSelectedScore} />

@@ -1,26 +1,41 @@
 import axios from "axios";
+import Keys from "./Keys";
 
 class GraderHelper {
-
-  _apiKey = "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" // Replace with environmental variable
 
   _generatePrompt(pos, neg) {
     return true
   }
 
-  async makeOpenAIRequest() {
+  async makeOpenAIRequest(neg, pos) {
+    let prompt = "Write me feedback to a student where he did the following items in this array incorrectly: "
+
+    neg.forEach(e => {
+      prompt += e + ", "
+    });
+
+    prompt += "and did these items very well: "
+
+    pos.forEach(e => {
+      prompt += e + ", "
+    })
+
+    prompt += "Please generate the response into one paragraph, remove 'dear students name' and 'your name, position, contact information'. Then in another paragraph state 'Overall, good job with the project. The only thing(s) points were taken off for was for; ' then list the negative items in the past tense."
+
+    console.log(prompt)
+
     const options = {
       method: 'POST',
       url: 'https://api.openai.com/v1/chat/completions',
       headers: {
         ContentType: 'application/json',
-        Authorization: `Bearer ${this._apiKey}`
+        Authorization: Keys.CHATGPT_API ? `Bearer ${Keys.CHATGPT_API}` : false
       },
       data: {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are a helpful assistant.' },
-          { role: 'user', content: 'What is 4 * 5?' }
+          { role: 'user', content: prompt }
         ]
       }
     };
