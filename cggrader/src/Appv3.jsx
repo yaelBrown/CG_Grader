@@ -177,6 +177,4 @@ function Appv3() {
 
 export default Appv3;
 
-// Add other mods to JSON,
-
-// Prepare prompt and fix chatgpt key
+// Add other mods to JSON

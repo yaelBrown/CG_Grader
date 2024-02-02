@@ -1,4 +1,4 @@
-mod-3 bootstrap portfolio
+// mod-3 bootstrap portfolio
 
 Hello,
 
@@ -8,10 +8,20 @@ Good job with the assignment and congratulations on a good homework assignment! 
 
 
 
-mod-4 console finances
+// mod-4 console finances
 
-Hello, 
+Hello,
 
 Good job with the assignment and congratulations on a good homework assignment! You were able to analyze the financial records of a company utilizing javascript. You were able to perform calculations with javascript and generate an output in the console. Your application is deployed to a live URL, it loads without errors, you submitted the github pages URL. The repo has an unique name, the repo follows file structure and naming conventions. The readme has a project description, screenshot, and deployment link. Overall, good job with the project.
+
+-Respectfully, Central Grader YaeliB
+
+
+
+// mod-6 weather dashboard
+
+Hello,
+
+Good job with the assignment and congratulations on a good homework assignment! You were able to create a weather dashboard utilizing javascript and the weather dashboard. You were able to deploy the application and it loads without errors. The UX is easy to use and navigate. I can input the city name is and it searches for the city. Then it returns the weather from the api and displays it on the page. In the repo you are following best practices for the file structure of the repo and naming conventions. Along with the best practices for class/id naming conventions, indentation. The readme has a project description, screenshot, and deployment link. Overall, good job with the project.
 
 -Respectfully, Central Grader YaeliB
