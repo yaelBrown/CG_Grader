@@ -1,11 +1,25 @@
+"""
+  Pre-reqs:
+    pip install gTTS playsound
+"""
+
+
 import requests
 import json
 import time
 import os
 import datetime
+from gtts import gTTS
+import os
+import playsound
 
 url = "https://grading.bootcampspot.com/api/centralgrading/v1/submissions"
-authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk2NzczLCJtaW51dGVzVGltZW91dCI6NjAsImNyZWF0aW9uVGltZSI6IjIwMjMtMDYtMjJUMjE6Mjc6MTcuNTU5NDk4MzY1WiJ9.zsNE0r9gENy2y9eStI-xkqVA_5EZsjez_crbbI8jsgk"
+authToken = input("Enter AuthToken: ")
+playsound.playsound("test.mp3", True)
+
+if authToken == None: 
+  raise Exception("You need provide a AuthToken")
+  exit()
 
 payload = json.dumps({
   "offset": 0,
@@ -18,6 +32,7 @@ payload = json.dumps({
     "name": "Central Grader"
   }
 })
+
 headers = {
   'authority': 'grading.bootcampspot.com',
   'accept': 'application/json',
@@ -51,8 +66,12 @@ while True:
     print(f"Assignments: {str(res)}")
     
     prompt = f"{str(res)} in the queue"
+    print("https://grading.bootcampspot.com/queue?offset=20")
     if res > 0:
-      os.system(f'echo "{prompt}" | festival --tts')
+      vox = gTTS(text=prompt, lang="en", slow=False)
+      vox.save(f"vox{cnt}.mp3")
+      playsound.playsound(f"vox{cnt}.mp3", True)
+      os.remove(f"vox{cnt}.mp3")
   except Exception as e: 
     print("Error getting request!")
     print(e)
@@ -64,7 +83,12 @@ while True:
 
 
 
-  
+"""
+Using Festival for TTS on Linux
+
+os.system(f'echo "{prompt}" | festival --tts')
+"""
+
 
 
 

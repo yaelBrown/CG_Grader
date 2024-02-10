@@ -24,5 +24,6 @@
   "developFolder": "One thing about your repo, you still have the develop folder. Now that you are turning in your application, you don't need to have a develop folder anymore. All of the files that are in your develop folder should be in the root of your repo.",
   "linkSemantic": "https://www.w3schools.com/html/html5_semantic_elements.asp",
   "linkProfessionalReadme": "https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide",
-  "linkSemanticCommit": "https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716"
+  "linkSemanticCommit": "https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716",
+  "notPullingFromLocalStorage": "When I refresh the page it does not display the contents that wrote into local storage. You also had to get the application to check local storage for saved content in local storage and populate the editor on page load. "
 }
