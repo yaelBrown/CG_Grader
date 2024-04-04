@@ -70,7 +70,8 @@ while True:
     if res > 0:
       vox = gTTS(text=prompt, lang="en", slow=False)
       vox.save(f"vox{cnt}.mp3")
-      playsound.playsound(f"vox{cnt}.mp3", True)
+      playsound.playsound(f"vox{cnt}.mp3")
+      time.sleep(100)
       os.remove(f"vox{cnt}.mp3")
   except Exception as e: 
     print("Error getting request!")

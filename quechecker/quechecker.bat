@@ -1,2 +1,2 @@
-cd c:\projz\CG_Grader\cggrader\quechecker
-python queuechecker.py
+cd C:\projz\CG_Grader\quechecker && python queuechecker.py
+pause
