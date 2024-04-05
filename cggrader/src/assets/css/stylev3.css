@@ -1,7 +1,6 @@
 main {
   background-color: #292929 !important;
   color: #ffffff;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   margin-top: 1em;
@@ -60,7 +59,7 @@ button:active {
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
-  width: 160px;
+  width: 210px;
 }
 
 #assignment_btns::-webkit-scrollbar {
@@ -86,13 +85,20 @@ button:active {
   padding: 10px 44px;
 }
 
+#assignment_sel {
+  background: #383838;
+  color: #fff;
+  padding: .5rem;
+  width: 200px;
+}
+
 #feedback_items {
   max-width: 283px;
 }
 
 .feedback_btn_lg {
-  padding: 20px 88px;
-  width: 280px;
+  padding: 10px;
+  width: 130px;
 }
 
 #feedback_default_btn_grp {

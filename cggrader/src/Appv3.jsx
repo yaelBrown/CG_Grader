@@ -118,11 +118,31 @@ function Appv3() {
   return (
     <main>
       <section id="top_section">
-        <div id="assignment_btns">
-          <button type="button" data-button="mod1" onClick={updateCurrentModSelected}>Mod 1</button>
-        </div>
-        <div className="vert_divider" />
         <div id="feedback_items">
+        <div id="assignment_btns">
+          <select name="assignment_sel" id="assignment_sel">
+            <option>Mod 1  (Semantic HTML)</option>
+            <option>Mod 2  (Porfessional Profile)</option>
+            <option>Mod 3  (Password Generator)</option>
+            <option>Mod 3  (Employee Tracker)</option>
+            <option>Mod 4  (Javascript Quiz)</option>
+            <option>Mod 4  (Personal Blog)</option>
+            <option>Mod 4  (Console Finances)</option>
+            <option>Mod 5  (Workday Scheduler)</option>
+            <option>Mod 5  (Task Scheduler)</option>
+            <option>Mod 6  (Weather Dashboard)</option>
+            <option>Mod 8  (Weather Dashboard (Open Weather Map API))</option>
+            <option>Mod 9  (Professional Readme Generator)</option>
+            <option>Mod 10 (SVG Logo Generator)</option>
+            <option>Mod 10 (Team Profile Generator)</option>
+            <option>Mod 12 (Employee Tracker (OOP and NodeJS))</option>
+            <option>Mod 12 (Employee Tracker (MySQL and NodeJS))</option>
+            <option>Mod 14 (Tech Blog)</option>
+            <option>Mod 19 (Progressive Web App)</option>
+            <option>Mod 21 (Book Search Engine)</option>
+          </select>
+        </div>
+        <br/>
           <div>
             <button className="feedback_btn_lg" data-button="perfect" onClick={addFeedbackFromJSON}>Perfect</button>
           </div>

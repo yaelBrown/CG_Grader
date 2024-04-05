@@ -5,7 +5,7 @@ import feedbackJSON from './feedback.json'
 function App() {
   const initialState = {
     feedback: '',
-    score: 100
+    score: 100100100
   }
 
   useEffect(() => {
