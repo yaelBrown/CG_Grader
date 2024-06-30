@@ -96,10 +96,10 @@ def getSubmissionDetail(assignment_id):
   }
 
   response = requests.request("POST", url, headers=headers, data=payload)
-  response_code = response.status_code
   
-  if response_code != 200: 
-    l(f"Invalid response: {str(response_code)}", False)
+  if response.status_code != 200: 
+    l(f"Invalid response (assignment_id): {str(assignment_id)}", False)
+    l(f"Invalid response: {str(response.status_code)}", False)
     return False
   else: 
     return response.json()
@@ -107,32 +107,25 @@ def getSubmissionDetail(assignment_id):
 # do debug of this method
 def checkIfSkippable(assignment):
   asmt_det = getSubmissionDetail(assignment["id"])
-  for asmt_det_data in asmt_det["data"]:
-    isSkip = False
-    isUrl = False
-
-    if len(asmt_det_data) == 0:
-      isSkip = True
-    else: 
-      if asmt_det_data["key"] == "UserSubmittedBody" and "skip" in asmt_det_data["content"]:
-        isSkip = True
-      if asmt_det_data["key"] == "SubmissionUrl":
-        isUrl = True
-        if "skip" in asmt_det_data["content"]:
-          isSkip = True
-
-      if not isUrl: 
-        isSkip = True
-    
+  try: 
     id = asmt_det["id"]
-    
-    if isSkip == True: 
-      l(f"Skippable assignment: https://grading.bootcampspot.com/canvasSubmission/{id}", True)
-    else: 
-      l(f"Not Skippable: {id}")
-    
-    time.sleep(1)
+  except Exception as e: 
+    l(f"Error in assignment data: {assignment["id"]}")
+    l(f"Assignment: {assignment}")
+    return l(f"Exception: {e}")
 
+  if len(asmt_det["data"]) == 0:
+    return l(f"Skippable assignment: https://grading.bootcampspot.com/canvasSubmission/{id}", True)
+  
+  isUrlsPresent = False
+  for asmt_det_data in asmt_det["data"]:
+    if asmt_det_data["key"] == "SubmissionUrl":
+      isUrlsPresent = True   
+  
+  if not isUrlsPresent: 
+    l(f"Skippable assignment: https://grading.bootcampspot.com/canvasSubmission/{id}", True)
+  else: 
+    l(f"Not Skippable: {id}")
 
 def checkForSkipOrEmpty():
   # get all submissions
@@ -142,16 +135,18 @@ def checkForSkipOrEmpty():
   total = submissions["totalResults"]
   l(f"Total Submissions: {total}", True)
   
-  ofst = 200
+  ofst = 0
   cnt = 1
 
   l(f"Checking for skip or no links")
-  while ofst <= total:
+  while cnt <= total:
     for asmt in submissions["data"]:
       checkIfSkippable(asmt)
       cnt += 1
     
+    l("Incrementing offset")
     ofst += 200
+    l("Getting more submissions")
     submissions = getSubmissions(ofst)
     l(f"{cnt} / {total}")
 

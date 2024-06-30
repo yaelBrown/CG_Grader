@@ -1,0 +1,91 @@
+{
+    "id": 1532827,
+    "programId": 1,
+    "courseId": 22022,
+    "externalAppId": 2,
+    "externalId": "2077250",
+    "potentialPlagiarism": false,
+    "outdated": false,
+    "date": "2024-04-12T04:33:20.255178Z",
+    "externalDate": "2024-04-12T03:50:04Z",
+    "data": [
+        {
+            "key": "UserSubmittedBody",
+            "type": "Body",
+            "content": "<p>GitHub Repository: <a href=\"https://github.com/BryanGC96/Model-View-Controller\" rel=\"nofollow\">https://github.com/BryanGC96/Model-View-Controller</a></p>\n<p>I tryed to finish the challenge before the limit date, but i could find the time to finish, i know what to do and how to do it, but </p>\n<p>i am sorry i couldnt finish it on time; at the moment, my schema and tables are working, and they are seeding properly and linked together as they suppose to be, </p>\n<p>and i allready started the logic for the log in and out, also, started making the main handlebar with styles, but at the moment im missing  mainly the routes and endpoints. and</p>\n<p>i also want to give a proper style and display for each of them. Again, im sorry and thank you for your understanding; ill be finishing this as soon as possible</p>",
+            "ordinal": 0,
+            "children": [
+                {
+                    "key": "Title",
+                    "type": "text",
+                    "content": "Submitted Body",
+                    "ordinal": 0,
+                    "children": null
+                }
+            ]
+        },
+        {
+            "key": "SubmissionUrl",
+            "type": "link",
+            "content": "https://github.com/BryanGC96/Model-View-Controller",
+            "ordinal": 1,
+            "children": [
+                {
+                    "key": "Title",
+                    "type": "text",
+                    "content": "Submitted Link",
+                    "ordinal": 0,
+                    "children": null
+                }
+            ]
+        }
+    ],
+    "excused": false,
+    "assignmentId": "67569",
+    "assignmentName": "Module 14 Challenge",
+    "assignmentDueDate": "2024-04-12T05:59:59Z",
+    "cohortId": "4674",
+    "cohortName": "TDM-VIRT-FSF-PT-12-2023-U-LOLC",
+    "universityId": "25",
+    "universityName": "Tecnologico de Monterrey",
+    "studentId": "70418",
+    "studentName": "Gomez cerda, Bryan",
+    "url": "https://bootcampspot.instructure.com/courses/4721/gradebook/speed_grader?assignment_id=67569&student_id=70418",
+    "previewUrl": "https://bootcampspot.instructure.com/courses/4721/assignments/67569/submissions/70418?preview=1&version=1",
+    "program": {
+        "id": 1,
+        "name": "Full Stack Flex",
+        "code": "Full Stack Flex"
+    },
+    "course": {
+        "id": 22022,
+        "externalAppId": 2,
+        "programId": 1,
+        "name": "TDM-VIRT-FSF-PT-12-2023-U-LOLC-MWTH",
+        "startDate": "2023-12-04T06:00:00Z",
+        "endDate": "2024-06-17T06:00:00Z"
+    },
+    "externalApp": {
+        "id": 2,
+        "name": "CANVAS"
+    },
+    "status": "New",
+    "grade": null,
+    "plagiarizedRelatedSubmissions": false,
+    "archivedClaim": null,
+    "gradeApproval": null,
+    "comments": [],
+    "relatedSubmissions": [],
+    "claimedByAccount": null,
+    "gradedByAccount": null,
+    "approvedByAccount": null,
+    "chatCommentList": [],
+    "claimedDate": null,
+    "availableGrades": [],
+    "rubric": {
+        "id": null,
+        "externalId": null,
+        "rubricCriteria": null
+    },
+    "rubricGrades": []
+}
